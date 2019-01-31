@@ -1,0 +1,7 @@
+---
+- hosts: client
+  tasks:
+    - name: run roles
+      import_role:
+             name: reposvr
+...
