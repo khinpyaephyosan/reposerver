@@ -17,7 +17,7 @@ Dependencies
 
 Example Playbook
 ----------------
-$ansible-playbook use-reposvr-role.yml -bK
+$ansible-playbook -i inventory use-reposvr-role.yml -bK 
 
 
 License
