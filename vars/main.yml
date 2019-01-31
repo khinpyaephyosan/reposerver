@@ -1,0 +1,4 @@
+---
+# vars file for reposvr
+repo_path: /var/www/html/repos/centos/7
+...

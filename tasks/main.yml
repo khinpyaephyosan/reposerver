@@ -1,0 +1,21 @@
+---
+# tasks file for reposvr
+   - name: create repo directory
+     file:
+        state: directory
+        recurse: yes
+        path: "{{ repo_path }}"
+        setype: httpd_sys_content_t
+        seuser: system_u
+   - name: update yum
+     command: "yum update -y"
+   - name: install createrepo
+     yum:
+        name: createrepo
+        state: latest
+   - name: initialize database
+     command: "createrepo {{ repo_path }}"
+   - name: synchronize the repo
+     command: "rsync -avz rsync://mirror.xtom.com.hk/centos/7/os/x86_64/ {{ repo_path }}/"
+     notify: update_repo_db
+...
